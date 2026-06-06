@@ -22,6 +22,6 @@ coffee-aparat/
 │   └── Main.java
 │
 └── payment_system/
-├── Balance.java
-└── Menu.java
+    ├── Balance.java
+    └── Menu.java
 ```
