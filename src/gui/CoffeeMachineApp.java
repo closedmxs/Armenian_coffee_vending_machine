@@ -36,12 +36,22 @@ public class CoffeeMachineApp extends Component {
     } public static void main(String[] args) {
         JFrame f = new JFrame("Armenian Coffee ");
         ImageIcon icon = new ImageIcon("src/gui/img/flag.png");
-        f.setIconImage(icon.getImage()); JButton menu = new JButton();
+        f.setIconImage(icon.getImage());
 
-        menu.setBounds(0,195,260,190);
-        menu.setOpaque(false); menu.setContentAreaFilled(false);
-        menu.setBorderPainted(true);
+        JButton menu = new JButton();
+        menu.setBounds(0, 195, 260, 190);
+        menu.setOpaque(false);
+        menu.setContentAreaFilled(false);
+        menu.setBorderPainted(false);
         menu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        menu.addActionListener(e -> {
+            JFrame menuFrame = new JFrame("Armenian Coffee - Menu");
+            menuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            menuFrame.add(new MainMenu());
+            menuFrame.pack();
+            menuFrame.setLocationRelativeTo(f);
+            menuFrame.setVisible(true);
+        });
 
         JButton drink = new JButton();
         drink.setBounds(0,395,260,125);
@@ -51,11 +61,19 @@ public class CoffeeMachineApp extends Component {
         drink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         JButton payement = new JButton();
-        payement.setBounds(270,150,45,40);
+        payement.setBounds(270, 150, 45, 40);
         payement.setOpaque(false);
         payement.setContentAreaFilled(false);
-        payement.setBorderPainted(true);
+        payement.setBorderPainted(false);
         payement.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        payement.addActionListener(e -> {
+            JFrame paymentFrame = new JFrame("Armenian Coffee - Payment");
+            paymentFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            paymentFrame.add(new PaymentMenu());
+            paymentFrame.pack();
+            paymentFrame.setLocationRelativeTo(f);
+            paymentFrame.setVisible(true);
+        });
 
         JButton charge = new JButton();
         charge.setBounds(270,490,45,40);
